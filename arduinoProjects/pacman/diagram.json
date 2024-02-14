@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "ldirko",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "uno", "top": 687.02, "left": 76.5, "attrs": {} },
+    { "type": "wokwi-neopixel", "id": "pixel1", "top": 807.31, "left": 518.51, "attrs": {} },
+    {
+      "type": "wokwi-neopixel-meter",
+      "id": "meter",
+      "top": 508.74,
+      "left": 472.15,
+      "attrs": { "pixels": "13*15" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 676.38,
+      "left": 497.05,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-neopixel-canvas",
+      "id": "neopixels",
+      "top": 249.84,
+      "left": -165.98,
+      "attrs": { "rows": "8", "cols": "32", "pixelate": "1", "matrixLayout": "serpentine" }
+    }
+  ],
+  "connections": [
+    [ "uno:GND.1", "neopixels:VSS", "", [ "v0", "*", "v12" ] ],
+    [ "uno:3", "neopixels:DIN", "", [ "v0", "*", "v8" ] ],
+    [ "uno:3", "meter:DIN", "green", [] ],
+    [ "uno:5V", "neopixels:VDD", "red", [ "v16", "*", "h0" ] ],
+    [ "btn1:2.l", "uno:GND.2", "green", [ "h-19", "v177", "h-230" ] ],
+    [ "btn1:1.l", "uno:2", "green", [ "h-26", "v-13", "h-161" ] ],
+    [ "pixel1:VDD", "uno:5V", "red", [ "h-38", "v121", "h-253" ] ],
+    [ "pixel1:VSS", "uno:GND.3", "black", [ "v123", "h-295" ] ],
+    [ "pixel1:DIN", "uno:4", "green", [ "h28", "v-120", "h-288" ] ]
+  ]
+}
